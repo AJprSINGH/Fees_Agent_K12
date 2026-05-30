@@ -419,7 +419,7 @@ def preprocess(df: pd.DataFrame) -> pd.DataFrame:
         # F. GRADE + DIVISION ENCODING  (Phase 2)
         # --------------------------------------------------------
         grade_col = next(
-            (c for c in ["grade", "class_name", "std/div"]
+            (c for c in ["grade", "class_name", "std_div", "std/div"]
              if c in df.columns), None
         )
 

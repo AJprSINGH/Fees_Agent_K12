@@ -179,6 +179,9 @@ def read_student_data(file_path: str = None) -> pd.DataFrame:
 
     for col in df.columns:
         if col in REQUIRED_COLUMNS:
+            # Skip renaming total_unpaid -> pending_amount to avoid conflict
+            if col == "total_unpaid" and "pending_amount" in df.columns:
+                continue
             rename_map[col] = REQUIRED_COLUMNS[col]
 
     df.rename(columns=rename_map, inplace=True)
@@ -240,15 +243,20 @@ def read_student_data(file_path: str = None) -> pd.DataFrame:
     numeric_cols = [
         "total_fees",
         "total_paid",
-        "pending_amount",
+        "total_unpaid",
         "days_overdue",
     ]
 
     for col in numeric_cols:
-        df[col] = pd.to_numeric(
-            df[col],
-            errors="coerce",
-        ).fillna(0)
+        if col in df.columns:
+            df[col] = pd.to_numeric(
+                df[col],
+                errors="coerce",
+            ).fillna(0)
+        
+    # Ensure pending_amount also exists as an alias for total_unpaid
+    if "total_unpaid" in df.columns and "pending_amount" not in df.columns:
+        df["pending_amount"] = df["total_unpaid"]
 
     # =========================================================
     # REMOVE DUPLICATE GR NUMBERS
