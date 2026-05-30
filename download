@@ -1,0 +1,33 @@
+# Secrets — NEVER commit these
+.env
+*.env
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+venv/
+.venv/
+env/
+
+# ML model artifacts (train locally, do NOT commit large binaries)
+models/artifacts/
+*.pkl
+*.joblib
+*.h5
+
+# Reports / temp
+reports/daily_defaulter_report.xlsx
+*.tmp
+
+# IDE
+.vscode/
+.idea/
+*.swp

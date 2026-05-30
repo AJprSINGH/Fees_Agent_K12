@@ -1,0 +1,64 @@
+# =============================================================
+# requirements.txt
+# Phase 6 — Full Production Dependencies
+#
+# FIXES APPLIED:
+#   ✅ FIX 1: Added uvicorn[standard] for production ASGI support
+#   ✅ FIX 2: Added python-dotenv for .env loading
+#   ✅ FIX 3: Added pydantic-settings support
+#   ✅ FIX 4: Added xlsxwriter + xlrd for Excel compatibility
+#   ✅ FIX 5: Added xgboost + lightgbm for ML models
+#   ✅ FIX 6: Added imbalanced-learn for SMOTE/class balancing
+#   ✅ FIX 7: Added shap for explainable AI support
+#   ✅ FIX 8: Added apscheduler for scheduled ML jobs
+#   ✅ FIX 9: Hugging Face deployment compatible
+#   ✅ FIX 10: Full FastAPI + ML + Supabase stack support
+# =============================================================
+
+# =============================================================
+# FASTAPI SERVER
+# =============================================================
+
+fastapi
+uvicorn[standard]
+python-multipart
+
+# =============================================================
+# DATABASE + ENVIRONMENT
+# =============================================================
+
+supabase
+python-dotenv
+pydantic-settings
+
+# =============================================================
+# DATA PROCESSING
+# =============================================================
+
+pandas
+numpy
+
+# =============================================================
+# EXCEL SUPPORT
+# =============================================================
+
+openpyxl
+xlsxwriter
+xlrd
+
+# =============================================================
+# MACHINE LEARNING
+# =============================================================
+
+scikit-learn
+xgboost
+lightgbm
+imbalanced-learn
+shap
+joblib
+
+# =============================================================
+# SCHEDULER
+# =============================================================
+
+apscheduler
